@@ -4,7 +4,8 @@ getwd()
 ###setwd("")
 
 #Have all the packages listed at the top
-####Plan is to eventually use the RLinkedIn package, but necessary now.
+####Plan is to eventually use the RLinkedIn package,
+####but it doesn't seem to be able to take the recommendations from the profile now.
 
 packages <- c("Rlinkedin")
 #Load and install the packages (if not already installed)
