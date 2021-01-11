@@ -58,4 +58,4 @@ myNames <- names(v)
 d <-  data.frame(word=myNames,freq=v)
 
 #Function to create the wordcloud
-wordcloud(d$word,scale=c(4,.3), colors=c(6,4),random.color=FALSE, d$freq, min.freq=80)
+wordcloud(d$word,scale=c(4,.3), colors=c(6,4,3,2,1,10,11,12),random.color=FALSE, d$freq, min.freq=80)
