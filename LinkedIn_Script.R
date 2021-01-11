@@ -7,7 +7,8 @@ getwd()
 ####Plan is to eventually use the RLinkedIn package,
 ####but it doesn't seem to be able to take the recommendations from the profile now.
 
-packages <- c("Rlinkedin","dplyr","tm", "tidytext","tau","tidyr")
+packages <- c("Rlinkedin","dplyr","tm", "tidytext","tau","tidyr", "RColorBrewer"
+              , "wordcloud","wordcloud2","tidyverse", "writexl","reshape2")
 #Load and install the packages (if not already installed)
 packages.check <- lapply (
   packages,
@@ -59,3 +60,15 @@ d <-  data.frame(word=myNames,freq=v)
 
 #Function to create the wordcloud
 wordcloud(d$word,scale=c(4,.3), colors=c(6,4,3,2,1,10,11,12),random.color=FALSE, d$freq, min.freq=80)
+
+####Option #2: Export to Tableau for Tableau wordcloud
+df <- data.frame(text=sapply(docs, identity), 
+                        stringsAsFactors=F)
+
+individual <- strsplit(df$text, " ")
+column <- lapply(individual,melt)
+Tableau <- as.data.frame(unlist(column))
+colnames(Tableau) <- c("Words")
+
+write_xlsx(Tableau,"BagOfWords.xlsx")
+
